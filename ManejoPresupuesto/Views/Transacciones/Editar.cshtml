@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Editar Transacción";
+    var linkCancelar = Model.UrlRetorno ?? Url.Action("Index");
 }
 
 <h1>Editar Transacción</h1>
@@ -12,6 +13,7 @@
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <input type="hidden" asp-for="Id"/>
+    <input type="hidden" asp-for="UrlRetorno" />
     <input type="hidden" asp-for="MontoAnterior" />
     <input type="hidden" asp-for="CuentaAnteriorId" />
 
@@ -49,8 +51,8 @@
     </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-primary">Actualizar</button>
-        <button type="submit" class="btn btn-danger" asp-action="Borrar">Borrar</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-danger" asp-action="Borrar" >Borrar</button>
+        <a class="btn btn-secondary" href="@linkCancelar">Cancelar</a>
     </div>
 
 
